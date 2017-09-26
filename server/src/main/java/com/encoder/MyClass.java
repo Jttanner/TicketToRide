@@ -1,4 +1,4 @@
-package com.example;
+package com.encoder;
 
 public class MyClass {
 }

@@ -12,4 +12,6 @@
         <activity android:name="ui.views.LoginActivity"></activity>
     </application>
 
+
+
 </manifest>
