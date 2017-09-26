@@ -11,6 +11,8 @@ import modeling.ResultObject;
 
 /**
  * Created by tyler on 9/12/2017.
+ * This class communicates with the server. It is called by the server proxy, given URLs and request objects and send those
+ * off through http and returns the results.
  */
 public class ClientCommunicator {
     private static ClientCommunicator ourInstance = new ClientCommunicator();

@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
-
+/**
+ * This class handles all encoding(and will have methods for decoding) to and from JSON
+ * */
 public class Encoder {
 
     private Gson gson = new Gson();
