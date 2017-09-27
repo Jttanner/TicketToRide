@@ -6,7 +6,7 @@ package modeling;
 
 public class LoginRequest extends RequestObject {
 
-    LoginRequest(String userName, String password) {
+    public LoginRequest(String userName, String password) {
         super(userName, password);
     }
 }

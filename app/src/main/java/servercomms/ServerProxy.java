@@ -1,9 +1,15 @@
 package servercomms;
 
+import android.util.Log;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import modeling.Game;
+import modeling.LoginRequest;
 import modeling.LoginResult;
+import modeling.RegisterRequest;
 import modeling.RegisterResult;
 import modeling.User;
 
@@ -20,14 +26,34 @@ public class ServerProxy {
         return ourInstance;
     }
 
+    private String TAG = "ServerProxy";
+
     private ServerProxy() {
     }
 
-    public LoginResult Login(User u){
-        return null;
+    public LoginResult Login(LoginRequest request){
+        URL url = null;
+        try {
+            //TODO dynamic host and port number getting
+            url = new URL("http://localhost:8080/login");
+        } catch (MalformedURLException e) {
+            Log.d(TAG,"URL is messed up yo in Login method");
+            e.printStackTrace();
+        }
+        //Make sure we are error checking this return statement
+        return (LoginResult) ClientCommunicator.getInstance().send(url,request);
     }
-    public RegisterResult Register(User u){
-        return null;
+    public RegisterResult Register(RegisterRequest request){
+        URL url = null;
+        try {
+            //TODO dynamic host and port number getting
+            url = new URL("http://localhost:8080/login");
+        } catch (MalformedURLException e) {
+            Log.d(TAG,"URL is messed up yo in Login method");
+            e.printStackTrace();
+        }
+        //Make sure we are error checking this return statement
+        return (RegisterResult) ClientCommunicator.getInstance().send(url,request);
     }
     /*public List<Game> getGameList(Command c){
 

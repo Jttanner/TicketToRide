@@ -4,11 +4,11 @@ package modeling;
  * Created by tyler on 9/26/2017.
  */
 public class RegisterResult extends ResultObject{
-    public RegisterResult(boolean success, String message){
-        this.success = success;
-        this.message = message;
+    public RegisterResult(boolean success) {
+        super(success);
     }
 
-    boolean success;
-    String message;
+    public RegisterResult(boolean success, String errorMessage) {
+        super(success, errorMessage);
+    }
 }

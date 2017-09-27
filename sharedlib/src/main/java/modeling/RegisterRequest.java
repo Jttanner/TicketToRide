@@ -5,7 +5,7 @@ package modeling;
  */
 
 public class RegisterRequest extends RequestObject {
-    RegisterRequest(String userName, String password) {
+    public RegisterRequest(String userName, String password) {
         super(userName, password);
     }
 }

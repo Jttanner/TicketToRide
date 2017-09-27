@@ -1,22 +1,19 @@
 package presenters;
 
-import ui.views.LoginViewInterface;
+import MVP_coms_classes.LoginVOpsImpl;
+import MVP_coms_classes.MVP_Main;
 
 /**
  * Created by tyler on 9/26/2017.
  * The presenter for the Login/Register View, its function is self explanatory. It handles the logic for logging in and registering
  */
 
-public class LoginPresenter implements LoginViewInterface {
+class LoginPresenter  {
+    private MVP_Main.LoginViewOps viewInterface = new LoginVOpsImpl();
 
-
-    @Override
-    public void LoginResult(boolean success) {
-
+    public void resultOfLogin(){
+        //TODO do something with results
+        //viewInterface.
     }
 
-    @Override
-    public void RegisterResult(boolean success) {
-
-    }
 }
