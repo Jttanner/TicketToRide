@@ -33,7 +33,7 @@ public class ClientCommunicator {
             http.setDoOutput(true);    // There is a request body
 
             http.addRequestProperty("Accept", "application/json");
-
+            //Makes an encoder object to encode the request object into the output stream
             Encoder encoder = new Encoder();
             encoder.encode(request, http.getOutputStream());
 
@@ -42,9 +42,11 @@ public class ClientCommunicator {
             if (http.getResponseCode() == HttpURLConnection.HTTP_OK) {
 
                 //return encoder.decodeResultObject(http.getInputStream());
+                //TODO handle decoding
 
             } else {
                 System.out.println("ERROR: " + http.getResponseMessage());
+                //TODO handle decoding
                 //return encoder.decodeResultObject(http.getErrorStream());
             }
         } catch (IOException e) {

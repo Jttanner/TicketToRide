@@ -22,14 +22,35 @@ public interface MVP_Main {
 
     interface LoginViewOps {
         // View operations permitted for the Presenter
+        /**Tells the view that login succeeded
+         * @param success A boolean
+         * */
+         void LoginResult(boolean success);
+        /**Tells the view that registration succeeded
+         * @param success A boolean
+         * */
+         void RegisterResult(boolean success);
+    }
+
+    /**
+     * Required View methods available to Presenter.
+     * A passive layer, responsible to show data
+     * and receive user interactions
+     */
+    interface RequiredViewOps {
+        // View operations permitted to Presenter
+        Context getAppContext();
+        Context getActivityContext();
+    }
+
+    /**
+     * Required Presenter methods available to Model.
+     */
+    interface  RequiredPresenterOps{
         /**Getting the appContext*/
         Context getAppContext();
         /**getting the context of the activity*/
         Context getActivityContext();
-        /**Tells the view that*/
-         void LoginResult(boolean success);
-
-         void RegisterResult(boolean success);
     }
 
     /**
