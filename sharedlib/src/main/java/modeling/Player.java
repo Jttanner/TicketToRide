@@ -6,4 +6,23 @@ package modeling;
  */
 
 public class Player {
+
+    Player(String userID){
+        this.userID = userID;
+    }
+
+    String userID;
+
+    public void startGame(Game game){
+
+    }
+
+    public void forfietGame(Game game){
+
+    }
+
+    public void leaveGame(Game game){
+
+    }
+
 }

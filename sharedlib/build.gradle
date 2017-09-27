@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files('C:/Users/tyler/AndroidStudioProjects/TicketToRide/libs/gson-2.2.4.jar')
+    compile files('libs/gson-2.8.1.jar')
 }
 
 sourceCompatibility = "1.7"
