@@ -9,27 +9,27 @@ import modeling.LoginRequest;
 import modeling.LoginResult;
 import modeling.RegisterRequest;
 import modeling.RegisterResult;
+import presenters.LoginPresenter;
 import teamjapannumbahone.tickettoride.R;
 
-public class LoginActivity extends AppCompatActivity implements MVP_Main.LoginPresentOps, MVP_Main.RequiredViewOps{
+public class LoginActivity extends AppCompatActivity implements  MVP_Main.RequiredViewOps{
 
-    private MVP_Main.LoginPresentOps mPresenter;// = new LoginPOpsImpl();
+    private MVP_Main.ProvidedLoginPresentOps mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setupMVP();
 
     }
 
-    @Override
-    public LoginResult Login(LoginRequest request) {
-        return mPresenter.Login(request);
-    }
-
-    @Override
-    public RegisterResult Register(RegisterRequest request) {
-        return mPresenter.Register(request);
+    /**
+     * Setup Model View Presenter pattern
+     */
+    private void setupMVP() {
+        // Create the Presenter
+        mPresenter = new LoginPresenter(this);
     }
 
     @Override
