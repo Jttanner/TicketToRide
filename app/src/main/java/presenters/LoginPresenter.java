@@ -13,17 +13,26 @@ import servercomms.ServerProxy;
 
 /**
  * Created by tyler on 9/26/2017.
- * The presenter for the Login/Register View, its function is self explanatory. It handles the logic for logging in and registering
+ * The presenter for the login/register View, its function is self explanatory. It handles the logic for logging in and registering
  */
 
 public class LoginPresenter  implements MVP_Main.RequiredPresenterOps, MVP_Main.ProvidedLoginPresentOps{
-    private WeakReference<MVP_Main.RequiredViewOps> myView;
+    private WeakReference<MVP_Main.RequiredLoginViewOps> myView;
 
     /**
      * Presenter Constructor
      * @param view  MainActivity
      */
-    public LoginPresenter(MVP_Main.RequiredViewOps view) {
+    public LoginPresenter(MVP_Main.RequiredLoginViewOps view) {
+        myView = new WeakReference<>(view);
+    }
+
+    /**
+     * Called by View during the reconstruction events
+     * @param view  Activity instance
+     */
+    @Override
+    public void setView(MVP_Main.RequiredLoginViewOps view) {
         myView = new WeakReference<>(view);
     }
 
@@ -31,7 +40,7 @@ public class LoginPresenter  implements MVP_Main.RequiredPresenterOps, MVP_Main.
      * Return the View reference.
      * Throw an exception if the View is unavailable.
      */
-    private MVP_Main.RequiredViewOps getView() throws NullPointerException{
+    private MVP_Main.RequiredLoginViewOps getView() throws NullPointerException{
         if ( myView != null )
             return myView.get();
         else
@@ -64,14 +73,14 @@ public class LoginPresenter  implements MVP_Main.RequiredPresenterOps, MVP_Main.
     //TODO need to make presenter do things to the view , for example these result methods will probably just start next activity
 
     @Override
-    public LoginResult Login(LoginRequest request) {
+    public LoginResult login(LoginRequest request) {
         return ServerProxy.getInstance().Login(request);
-        //return mPresenter.Login(request);
+        //return mPresenter.login(request);
     }
 
     @Override
-    public RegisterResult Register(RegisterRequest request) {
+    public RegisterResult register(RegisterRequest request) {
         return ServerProxy.getInstance().Register(request);
-        //return mPresenter.Register(request);
+        //return mPresenter.register(request);
     }
 }

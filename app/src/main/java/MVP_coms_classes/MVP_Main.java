@@ -6,38 +6,20 @@ import modeling.LoginRequest;
 import modeling.LoginResult;
 import modeling.RegisterRequest;
 import modeling.RegisterResult;
-import modeling.ResultObject;
-import modeling.User;
 
 /**
  * Created by tyler on 9/26/2017.
+ * This holds our interfaces that we will use between the GUIs and interfaces
  */
 
 public interface MVP_Main {
-
-    /**
-     * Created by tyler on 9/26/2017.
-     * The methods the presenter can call onto the view
-     */
-
-    interface LoginViewOps {
-        // View operations permitted for the Presenter
-        /**Tells the view that login succeeded
-         * @param success A boolean
-         * */
-         void LoginResult(boolean success);
-        /**Tells the view that registration succeeded
-         * @param success A boolean
-         * */
-         void RegisterResult(boolean success);
-    }
 
     /**
      * Required View methods available to Presenter.
      * A passive layer, responsible to show data
      * and receive user interactions
      */
-    interface RequiredViewOps {
+    interface RequiredLoginViewOps {
         // View operations permitted to Presenter
         Context getAppContext();
         Context getActivityContext();
@@ -45,7 +27,7 @@ public interface MVP_Main {
 
 
     /**
-     * Required Presenter methods available to Model.
+     * Required Presenter methods available to Model. NEEDED?
      */
     interface  RequiredPresenterOps{
         /**Getting the appContext*/
@@ -62,11 +44,13 @@ public interface MVP_Main {
         /**The view calls this in order to send login info through the presenter down to the server
          * @param request A LoginRequest object
          * */
-         LoginResult Login(LoginRequest request);
+         LoginResult login(LoginRequest request);
         /**The view calls this in order to register information through the presenter down to the server
-         * @param request A Register Request object
+         * @param request A register Request object
          * */
-         RegisterResult Register(RegisterRequest request);
+         RegisterResult register(RegisterRequest request);
+
+         void setView(RequiredLoginViewOps view);
     }
 
 }

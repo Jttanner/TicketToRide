@@ -25,6 +25,8 @@ public class CModel {
     private Game currGame;
     /**The set of players you are playing with*/
     private Set<Player> allPlayers;
+    /**Holds our persenters*/
+    private StateMaintainer stateMaintainer;
 
     private CModel() {
     }
@@ -43,5 +45,29 @@ public class CModel {
 
     public Set<Player> getAllPlayers() {
         return allPlayers;
+    }
+
+    public StateMaintainer getStateMaintainer() {
+        return stateMaintainer;
+    }
+
+    public void setMyUser(User myUser) {
+        this.myUser = myUser;
+    }
+
+    public void setAllGames(List<Game> allGames) {
+        this.allGames = allGames;
+    }
+
+    public void setCurrGame(Game currGame) {
+        this.currGame = currGame;
+    }
+
+    public void setAllPlayers(Set<Player> allPlayers) {
+        this.allPlayers = allPlayers;
+    }
+
+    public void setStateMaintainer(StateMaintainer stateMaintainer) {
+        this.stateMaintainer = stateMaintainer;
     }
 }
