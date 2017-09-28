@@ -44,11 +44,11 @@ public interface MVP_Main {
         /**The view calls this in order to send login info through the presenter down to the server
          * @param request A LoginRequest object
          * */
-         LoginResult login(LoginRequest request);
+         void login(LoginRequest request);
         /**The view calls this in order to register information through the presenter down to the server
          * @param request A register Request object
          * */
-         RegisterResult register(RegisterRequest request);
+         void register(RegisterRequest request);
 
          void setView(RequiredViewOps view);
     }
