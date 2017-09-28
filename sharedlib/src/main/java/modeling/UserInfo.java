@@ -1,5 +1,8 @@
 package modeling;
 
+import request.*;
+import result.*;
+
 /**
  * Created by jontt on 9/27/2017.
  */
@@ -17,10 +20,11 @@ public class UserInfo {
     String userID;
 
     public LoginResult checkUserInfo(LoginRequest request){
-        if (this.userName.equals(request.getUserName()) && this.password.equals(request.getPassword())){
-            return new LoginResult(true, "Login Successful.");
+        String userName = request.getUserName();
+        if (this.userName.equals(userName) && this.password.equals(request.getPassword())){
+            return new LoginResult(true, userName, "Login Successful.");
         } else{
-            return new LoginResult(false, "Invalid Username or Password.");
+            return new LoginResult(false, userName,"Invalid Username or Password.");
         }
     }
 

@@ -1,5 +1,8 @@
 package servercomms;
 
+import request.*;
+import result.*;
+
 import android.util.Log;
 
 import java.net.MalformedURLException;

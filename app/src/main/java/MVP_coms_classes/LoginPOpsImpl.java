@@ -1,6 +1,8 @@
 package MVP_coms_classes;
 
 import servercomms.ServerProxy;
+import request.*;
+import  result.*;
 
 /**
  * Created by tyler on 9/27/2017.

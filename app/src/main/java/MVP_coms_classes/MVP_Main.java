@@ -1,6 +1,8 @@
 package MVP_coms_classes;
 
 import android.content.Context;
+import request.*;
+import result.*;
 
 /**
  * Created by tyler on 9/26/2017.
