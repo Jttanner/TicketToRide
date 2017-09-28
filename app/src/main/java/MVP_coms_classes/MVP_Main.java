@@ -19,7 +19,7 @@ public interface MVP_Main {
      * A passive layer, responsible to show data
      * and receive user interactions
      */
-    interface RequiredLoginViewOps {
+    interface RequiredViewOps {
         // View operations permitted to Presenter
         Context getAppContext();
         Context getActivityContext();
@@ -50,7 +50,7 @@ public interface MVP_Main {
          * */
          RegisterResult register(RegisterRequest request);
 
-         void setView(RequiredLoginViewOps view);
+         void setView(RequiredViewOps view);
     }
 
 }

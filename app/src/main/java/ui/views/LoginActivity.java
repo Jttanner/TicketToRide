@@ -3,6 +3,7 @@ package ui.views;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +16,9 @@ import modeling.RegisterRequest;
 import presenters.LoginPresenter;
 import teamjapannumbahone.tickettoride.R;
 
-public class LoginActivity extends AppCompatActivity implements MVP_Main.RequiredLoginViewOps {
+public class LoginActivity extends AppCompatActivity implements MVP_Main.RequiredViewOps {
 
     private MVP_Main.ProvidedLoginPresentOps mPresenter;
-    private StateMaintainer mStateMaintainer;
     private Button mLoginButton;
     private Button mRegisterButton;
     private EditText mUserNameEdit;
@@ -33,25 +33,28 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
 
     }
 
-    
+
     private void setupMVP() {
         // Check if StateMaintainer has been created
-        if (mStateMaintainer == null) {
+        if (CModel.getInstance().getStateMaintainer() == null) {
             // Create the Presenter
             LoginPresenter presenter = new LoginPresenter(this);
             // Add Presenter to StateMaintainer
-            mStateMaintainer = new StateMaintainer(presenter);
+            CModel.getInstance().setStateMaintainer(new StateMaintainer(presenter));
             // Set the Presenter as a interface
             // To limit the communication with it
             mPresenter = presenter;
             //Set the presenter in the model
-            CModel.getInstance().getStateMaintainer().setPresenter(mPresenter);
+            //CModel.getInstance().getStateMaintainer().setPresenter(mPresenter);
 
         }
         // get the Presenter from StateMaintainer
         else {
+            Log.d(TAG,"Getting the presenter, we should already have it in the model");
             // Get the Presenter
-            mPresenter = CModel.getInstance().getStateMaintainer().getPresenter();
+            String presenterName = LoginPresenter.class.getName();
+            StateMaintainer main = CModel.getInstance().getStateMaintainer();
+            mPresenter  = (MVP_Main.ProvidedLoginPresentOps) main.getPresenter(presenterName);
             // Updated the View in Presenter
             mPresenter.setView(this);
         }
