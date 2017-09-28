@@ -5,12 +5,10 @@ import java.util.Map;
 import java.util.UUID;
 
 import modeling.Game;
-import modeling.LoginResult;
-import modeling.RegisterResult;
-import modeling.Request.LoginRequest;
-import modeling.Request.RegisterRequest;
 import modeling.User;
 import modeling.UserInfo;
+import result.*;
+import request.*;
 
 /**
  * Created by jontt on 9/27/2017.
@@ -28,15 +26,16 @@ public class ServerFacade {
     }
 
     RegisterResult register(RegisterRequest request){
+        String userName = request.getUserName();
+        String password = request.getPassword();
+        String newUserID = UUID.randomUUID().toString();
+        User newUser = new User(new UserInfo(userName, password, newUserID));
         if (request.getUserName() != null && request.getPassword() != null){
-            String userName = request.getUserName();
-            String password = request.getPassword();
-            String newUserID = UUID.randomUUID().toString();
-            User newUser = new User(new UserInfo(userName, password, newUserID));
+
             users.put(userName, newUser);
-            return new RegisterResult(true, "Succesfully Registered.");
+            return new RegisterResult(true, userName,"Succesfully Registered.");
         } else{
-            return new RegisterResult(false, "Failed to Register.");
+            return new RegisterResult(false, userName, "Failed to Register.");
         }
     }
 }

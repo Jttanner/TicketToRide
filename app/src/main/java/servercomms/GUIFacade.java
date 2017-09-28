@@ -2,6 +2,8 @@ package servercomms;
 
 import modeling.User;
 
+import result.*;
+
 /**
  * Created by tyler on 9/26/2017.
  * This class is called by the Presenters in order to pass data/requests from the user to the server. It does so by
