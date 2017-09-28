@@ -1,11 +1,5 @@
 package MVP_coms_classes;
 
-import modeling.LoginRequest;
-import modeling.LoginResult;
-import modeling.RegisterRequest;
-import modeling.RegisterResult;
-import modeling.ResultObject;
-import modeling.User;
 import servercomms.ServerProxy;
 
 /**

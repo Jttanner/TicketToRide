@@ -1,7 +1,5 @@
 package modeling;
 
-import modeling.Request.LoginRequest;
-
 /**
  * Created by jontt on 9/27/2017.
  */

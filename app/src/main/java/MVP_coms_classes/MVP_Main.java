@@ -2,13 +2,6 @@ package MVP_coms_classes;
 
 import android.content.Context;
 
-import modeling.LoginRequest;
-import modeling.LoginResult;
-import modeling.RegisterRequest;
-import modeling.RegisterResult;
-import modeling.ResultObject;
-import modeling.User;
-
 /**
  * Created by tyler on 9/26/2017.
  */

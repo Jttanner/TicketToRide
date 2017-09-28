@@ -1,7 +1,5 @@
 package servercomms;
 
-import modeling.LoginResult;
-import modeling.RegisterResult;
 import modeling.User;
 
 /**
