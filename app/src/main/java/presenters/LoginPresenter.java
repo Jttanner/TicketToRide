@@ -1,6 +1,9 @@
 package presenters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.Gravity;
+import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
 
@@ -17,8 +20,10 @@ import servercomms.ServerProxy;
  * The presenter for the login/register View, its function is self explanatory. It handles the logic for logging in and registering
  */
 
-public class LoginPresenter implements MVP_Main.RequiredLoginViewOps, MVP_Main.ProvidedLoginPresentOps{
+public class LoginPresenter implements MVP_Main.RequiredPresenterOps, MVP_Main.ProvidedLoginPresentOps{
     private WeakReference<MVP_Main.RequiredLoginViewOps> myView;
+    /**Booleans that tell us whether the user has entered a  suitable userName or password yet*/
+    private boolean hasUserName,hasPassword;
 
     /**
      * Presenter Constructor
@@ -37,8 +42,6 @@ public class LoginPresenter implements MVP_Main.RequiredLoginViewOps, MVP_Main.P
         myView = new WeakReference<>(view);
     }
 
-    //TODO need to make presenter do things to the view , for example result methods will probably just start next activity
-
     @Override
     public void login(LoginRequest request) {
         LoginResult result = ServerProxy.getInstance().Login(request);
@@ -50,16 +53,25 @@ public class LoginPresenter implements MVP_Main.RequiredLoginViewOps, MVP_Main.P
         RegisterResult result = ServerProxy.getInstance().Register(request);
         checkSuccess(result);
     }
-    /**Checks the success of the login or registration
+
+
+    /**Checks the success of the login or registration tells the GUI to take the appropitae action
      * @param result The result of the login/reg
      * */
     private void checkSuccess(ResultObject result) {
+        Toast toast = new Toast(myView.get().getAppContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setDuration(Toast.LENGTH_LONG);
         if(result.isSuccess()){
-            //TODO we need to start the create game activity
-
+            //Intent intent = new Intent(this, CreateGame.class);
+            //myView.get().loginSucceeded(intent);
+            //So obviously the below code will not be in the final product...just a placeholder until we get the next class
+            toast.setText("Login worked!");
+            myView.get().loginFailed(toast);
         }
-        else {
-            //TODO we need to pop a toast to the user telling them what failed
+        else{
+            toast.setText("Login failed: " + result.getErrorMessage());
+            myView.get().loginFailed(toast);
         }
     }
 
@@ -79,6 +91,7 @@ public class LoginPresenter implements MVP_Main.RequiredLoginViewOps, MVP_Main.P
         try {
             return getView().getAppContext();
         } catch (NullPointerException e) {
+            //TODO send toast out
             return null;
         }
     }
@@ -91,7 +104,24 @@ public class LoginPresenter implements MVP_Main.RequiredLoginViewOps, MVP_Main.P
         try {
             return getView().getActivityContext();
         } catch (NullPointerException e) {
+            //TODO send toast out
             return null;
         }
     }
+
+    @Override
+    public void hasPassword(boolean b) {
+        hasPassword = b;
+        canEnableButtons();
+    }
+
+    @Override
+    public void hasUserName(boolean b) {
+        hasUserName = b;
+        canEnableButtons();
+    }
+    private void canEnableButtons() {
+       myView.get().toggleButtons(hasPassword && hasUserName);
+    }
+
 }

@@ -7,13 +7,18 @@ package modeling;
  */
 
 public class RequestObject {
-    RequestObject(String userName, String password) {
+    public RequestObject() {
+    }
+    //TODO once we have more request objects, take out the constructor below and move to appropriate subclasses
+    public RequestObject(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
-    String userName;
-    String password;
+    private String userName;
+    private String password;
+
+
 
     public String getUserName() {
         return userName;

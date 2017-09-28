@@ -1,3 +1,4 @@
+/*
 package presenters;
 
 import android.content.Context;
@@ -6,11 +7,13 @@ import java.lang.ref.WeakReference;
 
 import MVP_coms_classes.MVP_Main;
 
+*/
 /**
  * Created by tyler on 9/28/2017.
  * The presenter superclass, holds methods and implemenations which are common to all presenters
  * AS OF RIGHT NOW THIS IS NOT USED
- */
+ *//*
+
 
 public class Presenter implements MVP_Main.RequiredPresenterOps {
     protected WeakReference<MVP_Main.RequiredLoginViewOps> myView;
@@ -19,10 +22,12 @@ public class Presenter implements MVP_Main.RequiredPresenterOps {
         this.myView = myView;
     }
 
-    /**
+    */
+/**
      * Return the View reference.
      * Throw an exception if the View is unavailable.
-     */
+     *//*
+
     private MVP_Main.RequiredLoginViewOps getView() throws NullPointerException{
         if ( myView != null )
             return myView.get();
@@ -30,9 +35,11 @@ public class Presenter implements MVP_Main.RequiredPresenterOps {
             throw new NullPointerException("View is unavailable");
     }
 
-    /**
+    */
+/**
      * @return  Application context
-     */
+     *//*
+
     @Override
     public Context getAppContext() {
         try {
@@ -42,9 +49,11 @@ public class Presenter implements MVP_Main.RequiredPresenterOps {
         }
     }
 
-    /**
+    */
+/**
      * @return  Activity context
-     */
+     *//*
+
     @Override
     public Context getActivityContext() {
         try {
@@ -54,3 +63,4 @@ public class Presenter implements MVP_Main.RequiredPresenterOps {
         }
     }
 }
+*/

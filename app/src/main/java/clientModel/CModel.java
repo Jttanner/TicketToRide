@@ -11,7 +11,7 @@ import modeling.User;
  * Created by tyler on 9/27/2017.
  * The root client Model class
  */
-public class CModel {
+class CModel {
     private static CModel ourInstance = new CModel();
 
     public static CModel getInstance() {
@@ -26,7 +26,7 @@ public class CModel {
     /**The set of players you are playing with*/
     private Set<Player> allPlayers;
     /**Holds our persenters*/
-    private StateMaintainer stateMaintainer;
+    //private StateMaintainer stateMaintainer;
 
     private CModel() {
     }
@@ -47,9 +47,9 @@ public class CModel {
         return allPlayers;
     }
 
-    public StateMaintainer getStateMaintainer() {
+   /* public StateMaintainer getStateMaintainer() {
         return stateMaintainer;
-    }
+    }*/
 
     public void setMyUser(User myUser) {
         this.myUser = myUser;
@@ -67,7 +67,7 @@ public class CModel {
         this.allPlayers = allPlayers;
     }
 
-    public void setStateMaintainer(StateMaintainer stateMaintainer) {
+   /* public void setStateMaintainer(StateMaintainer stateMaintainer) {
         this.stateMaintainer = stateMaintainer;
-    }
+    }*/
 }

@@ -1,16 +1,19 @@
 package ui.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import MVP_coms_classes.MVP_Main;
-import clientModel.CModel;
-import clientModel.StateMaintainer;
 import modeling.LoginRequest;
 import modeling.RegisterRequest;
 import presenters.LoginPresenter;
@@ -64,12 +67,63 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
             mPresenter.setView(this);
         }*/
     }
+    /**Here we setup the widgets so that they can be used*/
     private void setupWidgets() {
         mLoginButton = (Button)findViewById(R.id.loginButton);
         mRegisterButton = (Button)findViewById(R.id.registerButton);
         mUserNameEdit = (EditText) findViewById(R.id.editUserName);
         mPassWordEdit = (EditText) findViewById(R.id.editPassword);
+        setTextListeners();
+        setOnClicks();
 
+    }
+
+    @Override
+    public void toggleButtons(boolean b) {
+        mLoginButton.setEnabled(b);
+        mRegisterButton.setEnabled(b);
+    }
+
+    /**Where we set the text listeners for the edit texts*/
+    private void setTextListeners() {
+        mUserNameEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //if the textfield has more one or more char in it, we are good to go!
+                mPresenter.hasUserName(editable.length() > 0);
+            }
+        });
+
+        mPassWordEdit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //if the textfield has more one or more char in it, we are good to go!
+                mPresenter.hasPassword(editable.length() > 0);
+            }
+        });
+    }
+    /**Here we setup all of our on click listeners*/
+    private void setOnClicks() {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,6 +132,7 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
                 mPresenter.login(new LoginRequest(username,password));
             }
         });
+        mLoginButton.setEnabled(false);
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,6 +141,7 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
                 mPresenter.register(new RegisterRequest(username,password));
             }
         });
+        mRegisterButton.setEnabled(false);
     }
 
     @Override
@@ -97,4 +153,16 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
     public Context getActivityContext() {
         return this;
     }
+
+    @Override
+    public void loginSucceeded(Intent intent) {
+        // Intent intent = new Intent(this, CreateGame.class);
+        //startActivity(intent);
+    }
+
+    @Override
+    public void loginFailed(Toast toast ) {
+        toast.show();
+    }
+
 }
