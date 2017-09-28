@@ -17,12 +17,18 @@ import presenters.LoginPresenter;
 import teamjapannumbahone.tickettoride.R;
 
 public class LoginActivity extends AppCompatActivity implements MVP_Main.RequiredViewOps {
-
+    /**The pointer to our presenter object*/
     private MVP_Main.ProvidedLoginPresentOps mPresenter;
+    /**Our login button. Click to login*/
     private Button mLoginButton;
+    /**User registration button*/
     private Button mRegisterButton;
+    /**Where you enter your username*/
     private EditText mUserNameEdit;
+    /**where you enter your password*/
     private EditText mPassWordEdit;
+    /**Tag for log*/
+    private final String TAG = "Login Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +50,6 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
             // Set the Presenter as a interface
             // To limit the communication with it
             mPresenter = presenter;
-            //Set the presenter in the model
-            //CModel.getInstance().getStateMaintainer().setPresenter(mPresenter);
 
         }
         // get the Presenter from StateMaintainer
