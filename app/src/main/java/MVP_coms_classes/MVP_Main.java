@@ -3,9 +3,7 @@ package MVP_coms_classes;
 import android.content.Context;
 
 import modeling.LoginRequest;
-import modeling.LoginResult;
 import modeling.RegisterRequest;
-import modeling.RegisterResult;
 
 /**
  * Created by tyler on 9/26/2017.
@@ -19,7 +17,7 @@ public interface MVP_Main {
      * A passive layer, responsible to show data
      * and receive user interactions
      */
-    interface RequiredViewOps {
+    interface RequiredLoginViewOps {
         // View operations permitted to Presenter
         Context getAppContext();
         Context getActivityContext();
@@ -50,7 +48,7 @@ public interface MVP_Main {
          * */
          void register(RegisterRequest request);
 
-         void setView(RequiredViewOps view);
+         void setView(RequiredLoginViewOps view);
     }
 
 }

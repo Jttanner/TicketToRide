@@ -1,5 +1,7 @@
 package presenters;
 
+import android.content.Context;
+
 import java.lang.ref.WeakReference;
 
 import MVP_coms_classes.MVP_Main;
@@ -15,15 +17,15 @@ import servercomms.ServerProxy;
  * The presenter for the login/register View, its function is self explanatory. It handles the logic for logging in and registering
  */
 
-public class LoginPresenter extends Presenter implements MVP_Main.ProvidedLoginPresentOps{
-
+public class LoginPresenter implements MVP_Main.RequiredLoginViewOps, MVP_Main.ProvidedLoginPresentOps{
+    private WeakReference<MVP_Main.RequiredLoginViewOps> myView;
 
     /**
      * Presenter Constructor
      * @param view  MainActivity
      */
-    public LoginPresenter(MVP_Main.RequiredViewOps view) {
-        this.myView = new WeakReference<>(view);
+    public LoginPresenter(MVP_Main.RequiredLoginViewOps view) {
+        myView = new WeakReference<>(view);
     }
 
     /**
@@ -31,12 +33,9 @@ public class LoginPresenter extends Presenter implements MVP_Main.ProvidedLoginP
      * @param view  Activity instance
      */
     @Override
-    public void setView(MVP_Main.RequiredViewOps view) {
-        this.myView = new WeakReference<>(view);
+    public void setView(MVP_Main.RequiredLoginViewOps view) {
+        myView = new WeakReference<>(view);
     }
-
-
-
 
     //TODO need to make presenter do things to the view , for example result methods will probably just start next activity
 
@@ -57,9 +56,42 @@ public class LoginPresenter extends Presenter implements MVP_Main.ProvidedLoginP
     private void checkSuccess(ResultObject result) {
         if(result.isSuccess()){
             //TODO we need to start the create game activity
+
         }
         else {
             //TODO we need to pop a toast to the user telling them what failed
+        }
+    }
+
+    /**
+     * Return the View reference.
+     * Throw an exception if the View is unavailable.
+     */
+    private MVP_Main.RequiredLoginViewOps getView() throws NullPointerException{
+        if ( myView != null )
+            return myView.get();
+        else
+            throw new NullPointerException("View is unavailable");
+    }
+
+    @Override
+    public Context getAppContext() {
+        try {
+            return getView().getAppContext();
+        } catch (NullPointerException e) {
+            return null;
+        }
+    }
+
+    /**
+     * @return  Activity context
+     */
+    @Override
+    public Context getActivityContext() {
+        try {
+            return getView().getActivityContext();
+        } catch (NullPointerException e) {
+            return null;
         }
     }
 }

@@ -16,7 +16,7 @@ import modeling.RegisterRequest;
 import presenters.LoginPresenter;
 import teamjapannumbahone.tickettoride.R;
 
-public class LoginActivity extends AppCompatActivity implements MVP_Main.RequiredViewOps {
+public class LoginActivity extends AppCompatActivity implements MVP_Main.RequiredLoginViewOps {
     /**The pointer to our presenter object*/
     private MVP_Main.ProvidedLoginPresentOps mPresenter;
     /**Our login button. Click to login*/
@@ -41,19 +41,20 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
 
 
     private void setupMVP() {
+        //ALL THIS COMMENTED CODE DEALS WITH THE CLASS StateMaintainer, may be removed, as it is probably not needed
         // Check if StateMaintainer has been created
-        if (CModel.getInstance().getStateMaintainer() == null) {
+       // if (CModel.getInstance().getStateMaintainer() == null) {
             // Create the Presenter
             LoginPresenter presenter = new LoginPresenter(this);
             // Add Presenter to StateMaintainer
-            CModel.getInstance().setStateMaintainer(new StateMaintainer(presenter));
+            //CModel.getInstance().setStateMaintainer(new StateMaintainer(presenter));
             // Set the Presenter as a interface
             // To limit the communication with it
             mPresenter = presenter;
 
-        }
+       // }
         // get the Presenter from StateMaintainer
-        else {
+        /*else {
             Log.d(TAG,"Getting the presenter, we should already have it in the model");
             // Get the Presenter
             String presenterName = LoginPresenter.class.getName();
@@ -61,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements MVP_Main.Require
             mPresenter  = (MVP_Main.ProvidedLoginPresentOps) main.getPresenter(presenterName);
             // Updated the View in Presenter
             mPresenter.setView(this);
-        }
+        }*/
     }
     private void setupWidgets() {
         mLoginButton = (Button)findViewById(R.id.loginButton);
