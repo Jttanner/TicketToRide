@@ -5,4 +5,16 @@ package commandData;
  */
 
 public class CreateGameCommandData {
+    private String str;
+
+    public CreateGameCommandData() {
+    }
+
+    public String getStr() {
+        return str;
+    }
+
+    public void setStr(String str) {
+        this.str = str;
+    }
 }
