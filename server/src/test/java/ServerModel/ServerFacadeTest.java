@@ -20,9 +20,11 @@ public class ServerFacadeTest {
 
     ServerFacade facade = new ServerFacade();
 
+
     @org.junit.Before
     public void setUp() throws Exception {
-
+        facade.users = users;
+        facade.games = games;
         users.put("user", new User(new UserInfo("user", "password", "test")));
     }
 
@@ -33,7 +35,7 @@ public class ServerFacadeTest {
 
     @org.junit.Test
     public void login() throws Exception {
-        //assertTrue(facade.login(new LoginRequest((new UserInfo("user", "password", "test")))));
+        assertTrue(facade.login(new LoginRequest("user", "password")).isSuccess());
     }
 
     @org.junit.Test

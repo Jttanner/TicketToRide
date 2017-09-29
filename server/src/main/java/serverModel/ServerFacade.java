@@ -21,12 +21,12 @@ public class ServerFacade {
     Map<String, User> users = new HashMap<>();//Key=UserName
     Map<String, Game> games = new HashMap<>();//Key=gameID
 
-    LoginResult login(LoginRequest request){
+    public LoginResult login(LoginRequest request){
         UserInfo check = users.get(request.getUserName()).getInfo();
         return  check.checkUserInfo(request);
     }
 
-    RegisterResult register(RegisterRequest request){
+    public RegisterResult register(RegisterRequest request){
         String userName = request.getUserName();
         String password = request.getPassword();
         String newUserID = UUID.randomUUID().toString();

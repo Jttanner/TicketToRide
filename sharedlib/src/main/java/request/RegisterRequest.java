@@ -10,7 +10,8 @@ public class RegisterRequest extends RequestObject {
     private String password;
 
     public RegisterRequest(String userName, String password) {
-        super(userName, password);
+        this.userName = userName;
+        this.password = password;
     }
 
     public String getUserName() {
