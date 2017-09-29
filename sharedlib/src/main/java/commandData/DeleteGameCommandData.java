@@ -4,10 +4,10 @@ package commandData;
  * Created by Hwang on 9/28/2017.
  */
 
-public class CreateGameCommandData extends Command {
+public class DeleteGameCommandData extends Command {
     private String str;
 
-    public CreateGameCommandData() {
+    public DeleteGameCommandData() {
     }
 
     public String getStr() {

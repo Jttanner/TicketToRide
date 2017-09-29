@@ -1,15 +1,15 @@
 package command;
 
-import commandData.GetGameListCommandData;
+import commandData.DeleteGameCommandData;
 import result.Result;
 
 /**
  * Created by Hwang on 9/29/2017.
  */
 
-public class GetGameListCommand extends GetGameListCommandData implements ICommand{
-    public GetGameListCommand(){
-        super();
+public class DeleteGameCommand extends DeleteGameCommandData implements ICommand{
+    public DeleteGameCommand(){
+            super();
     }
 
     @Override
