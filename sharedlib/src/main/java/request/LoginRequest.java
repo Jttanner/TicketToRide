@@ -11,7 +11,8 @@ public class LoginRequest extends  RequestObject {
 
 
     public LoginRequest(String userName, String password) {
-        super(userName, password);
+        this.userName = userName;
+        this.password = password;
     }
 
     public String getUserName() {
