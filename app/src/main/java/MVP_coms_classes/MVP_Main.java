@@ -40,7 +40,8 @@ public interface MVP_Main {
          * @param toast The Toast to be popped
          */
         void loginFailed(Toast toast);
-        /**Toggles the buttons on the login screen*/
+        /**Toggles the buttons on the login screen
+         * @param b What setting the buttons are going to be at, enabled(true), disabled(false)*/
         void toggleButtons(boolean b);
     }
 
@@ -81,9 +82,11 @@ public interface MVP_Main {
         void register(RegisterRequest request);
 
         void setView(RequiredLoginViewOps view);
-
+        /**Checks if the user has entered a valid password
+         * @param b Boolean, if they have a password*/
         void hasPassword(boolean b);
-
+        /**Checks if the user has enterd a valid username
+         * @param b Boolean, if they have a userName**/
         void hasUserName(boolean b);
     }
 
