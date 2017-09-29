@@ -1,13 +1,14 @@
 package commandData;
 
 /**
- * Created by Hwang on 9/28/2017.
+ * Created by Hwang on 9/29/2017.
  */
 
-public class DeleteCommandData {
+public class GetGameListCommandData extends Command {
+
     private String str;
 
-    public DeleteCommandData() {
+    public GetGameListCommandData() {
     }
 
     public String getStr() {
