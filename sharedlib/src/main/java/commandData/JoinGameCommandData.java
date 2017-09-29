@@ -5,4 +5,17 @@ package commandData;
  */
 
 public class JoinGameCommandData {
+
+    private String str;
+
+    public JoinGameCommandData() {
+    }
+
+    public String getStr() {
+        return str;
+    }
+
+    public void setStr(String str) {
+        this.str = str;
+    }
 }
