@@ -1,5 +1,9 @@
 package handler;
 
+import ServerModel.ServerFacade;
+import request.*;
+import result.*;
+
 import com.google.gson.Gson;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
@@ -32,13 +36,16 @@ public class RegisterHandler extends BaseHandler implements HttpHandler {
                 Gson gson = new Gson();
 
                 RegisterRequest registerRequest = gson.fromJson(reqData, RegisterRequest.class);
-                RegisterService registerService = new RegisterService();
+                ServerFacade registerService = new ServerFacade();
                 RegisterResult rs = null;
                 try {
                     rs = registerService.register(registerRequest);
-                } catch (SQLException e) {
+                } /*catch (SQLException e) {
                     e.printStackTrace();
                 } catch (Database.DatabaseException e) {
+                    e.printStackTrace();
+                }*/
+                catch (Exception e){
                     e.printStackTrace();
                 }
 

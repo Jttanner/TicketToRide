@@ -10,6 +10,10 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.sql.SQLException;
 
+import ServerModel.ServerFacade;
+import request.*;
+import result.*;
+
 /**
  * Created by Hwang on 9/28/2017.
  */
@@ -31,18 +35,19 @@ public class LoginHandler extends BaseHandler implements HttpHandler {
                 Gson gson = new Gson();
 
                 LoginRequest loginRequest = gson.fromJson(reqData, LoginRequest.class);
-                LoginService loginService = new LoginService();
+                ServerFacade loginService = new ServerFacade();
                 LoginResult lr = null;
 
                 try
                 {
                     lr = loginService.login(loginRequest);
                 }
-                catch (SQLException e)
-                {
-                    e.printStackTrace();
-                }
-                catch (Database.DatabaseException e)
+                //catch (SQLException e)
+                //{
+                //    e.printStackTrace();
+                //}
+                //Database.DatabaseException e
+                catch (Exception e)
                 {
                     e.printStackTrace();
                 }
