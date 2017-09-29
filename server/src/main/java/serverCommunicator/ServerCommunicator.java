@@ -86,11 +86,11 @@ public class ServerCommunicator {
             // forwards the request to the handler for that URL path.
             System.out.println("Creating contexts");
 
-            serverCommunicator.createContext("/user/register", new RegisterHandler());
+            serverCommunicator.createContext("/register", new RegisterHandler());
 
-            serverCommunicator.createContext("/user/login", new LoginHandler());
+            serverCommunicator.createContext("/login", new LoginHandler());
 
-            serverCommunicator.createContext("/user/command", new CommandHandler());
+            //serverCommunicator.createContext("/user/command", new CommandHandler());
             // Log message indicating that the HttpServer is about the start accepting
             // incoming client connections.
             System.out.println("Starting server");
@@ -114,7 +114,4 @@ public class ServerCommunicator {
             String portNumber = args[0];
             new ServerCommunicator().run(portNumber);
         }
-    }
-
-
 }
