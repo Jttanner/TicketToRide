@@ -7,11 +7,12 @@ package modeling;
 
 public class Player {
 
-    Player(String userID){
+    public Player(String userID){
         this.userID = userID;
     }
 
     String userID;
+
 
     public void startGame(Game game){
 

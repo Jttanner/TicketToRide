@@ -33,6 +33,10 @@ public class User {
         ownedPlayers.remove(player);
     }
 
+    public String getUserID(){
+        return info.userID;
+    }
+
     public UserInfo getInfo() {
         return info;
     }
