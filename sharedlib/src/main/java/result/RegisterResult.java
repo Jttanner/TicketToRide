@@ -25,6 +25,7 @@ public class RegisterResult extends ResultObject {
         this.userName = userName;
     }
 
+    @Override
     public boolean isSuccess() { return success; }
 
     public void setSuccess(boolean success) { this.success = success; }
