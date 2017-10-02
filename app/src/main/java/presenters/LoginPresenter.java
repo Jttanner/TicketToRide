@@ -1,7 +1,6 @@
 package presenters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.Gravity;
 import android.widget.Toast;
 
@@ -14,7 +13,6 @@ import result.LoginResult;
 import result.RegisterResult;
 import result.ResultObject;
 import servercomms.ServerProxy;
-import ui.views.LoginActivity;
 
 /**
  * Created by tyler on 9/26/2017.

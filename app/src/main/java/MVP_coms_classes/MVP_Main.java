@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import request.LoginRequest;
-import request.RegisterRequest;
+import request.*;
+import result.*;
 
 /**
  * Created by tyler on 9/26/2017.
@@ -24,7 +24,7 @@ public interface MVP_Main {
         Context getAppContext();
 
         Context getActivityContext();
-        /**Handles the results from login in and registering
+        /*Handles the results from login in and registering
          * */
         /**
          * Handles the successful login/reg attempts
@@ -88,5 +88,4 @@ public interface MVP_Main {
          * @param b Boolean, if they have a userName**/
         void hasUserName(boolean b);
     }
-
 }

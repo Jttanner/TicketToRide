@@ -13,9 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import MVP_coms_classes.MVP_Main;
-import modeling.LoginRequest;
-import modeling.RegisterRequest;
 import presenters.LoginPresenter;
+import request.LoginRequest;
+import request.RegisterRequest;
 import teamjapannumbahone.tickettoride.R;
 
 public class LoginActivity extends AppCompatActivity implements MVP_Main.RequiredLoginViewOps {
