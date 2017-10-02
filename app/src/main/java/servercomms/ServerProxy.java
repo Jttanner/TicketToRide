@@ -32,7 +32,7 @@ public class ServerProxy {
             //TODO dynamic host and port number getting
             url = new URL("http://localhost:8080/login");
         } catch (MalformedURLException e) {
-            Log.d(TAG,"URL is messed up yo in Login method");
+            Log.d(TAG,"URL is messed up yo in login method");
             e.printStackTrace();
         }
         //Make sure we are error checking this return statement
@@ -44,17 +44,15 @@ public class ServerProxy {
             //TODO dynamic host and port number getting
             url = new URL("http://localhost:8080/login");
         } catch (MalformedURLException e) {
-            Log.d(TAG,"URL is messed up yo in Login method");
+            Log.d(TAG,"URL is messed up yo in login method");
             e.printStackTrace();
         }
         //Make sure we are error checking this return statement
         return (RegisterResult) ClientCommunicator.getInstance().send(url,request);
     }
     /*public List<Game> getGameList(Command c){
-
     }*/
     /*public void Encode(Object o, ResponseBody responseBody){
-
     }*/
     public void joinGame(){
 

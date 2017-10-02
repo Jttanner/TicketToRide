@@ -9,7 +9,7 @@ import result.*;
  * This class is called by the Presenters in order to pass data/requests from the user to the server. It does so by
  * calling the appropriate function on the server proxy class
  */
-public class GUIFacade {
+class GUIFacade {
     private static GUIFacade ourInstance = new GUIFacade();
 
     public static GUIFacade getInstance() {
