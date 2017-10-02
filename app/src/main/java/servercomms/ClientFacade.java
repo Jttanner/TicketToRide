@@ -1,4 +1,4 @@
-package servercomms;
+package clientModel;
 
 import java.util.List;
 
