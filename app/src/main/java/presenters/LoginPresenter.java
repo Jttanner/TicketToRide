@@ -8,11 +8,11 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 
 import MVP_coms_classes.MVP_Main;
-import modeling.LoginRequest;
-import modeling.LoginResult;
-import modeling.RegisterRequest;
-import modeling.RegisterResult;
-import modeling.ResultObject;
+import request.LoginRequest;
+import request.RegisterRequest;
+import result.LoginResult;
+import result.RegisterResult;
+import result.ResultObject;
 import servercomms.ServerProxy;
 import ui.views.LoginActivity;
 
@@ -36,8 +36,8 @@ public class LoginPresenter implements MVP_Main.RequiredPresenterOps, MVP_Main.P
 
     /**
      * Called by View during the reconstruction events
-     * @param view  Activity instance
-     *//*
+     *
+
     @Override
     public void setView(MVP_Main.RequiredLoginViewOps view) {
         myView = new WeakReference<>(view);

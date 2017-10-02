@@ -1,17 +1,12 @@
 package servercomms;
 
+import request.*;
+import result.*;
+
 import android.util.Log;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
-
-import modeling.Game;
-import modeling.LoginRequest;
-import modeling.LoginResult;
-import modeling.RegisterRequest;
-import modeling.RegisterResult;
-import modeling.User;
 
 /**
  * Created by tyler on 9/26/2017.

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import modeling.ResultObject;
+import result.ResultObject;
 
 
 /**
@@ -14,17 +14,17 @@ import modeling.ResultObject;
  * This class communicates with the server. It is called by the server proxy, given URLs and request objects and send those
  * off through http and returns the results.
  */
-public class ClientCommunicator {
+class ClientCommunicator {
     private static ClientCommunicator ourInstance = new ClientCommunicator();
 
-    public static ClientCommunicator getInstance() {
+    static ClientCommunicator getInstance() {
         return ourInstance;
     }
 
     private ClientCommunicator() {
     }
 
-    public ResultObject send(URL url, Object request) {
+    ResultObject send(URL url, Object request) {
         try {
 
             HttpURLConnection http = (HttpURLConnection) url.openConnection();

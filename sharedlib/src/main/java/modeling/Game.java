@@ -1,6 +1,7 @@
 package modeling;
 
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * Created by tyler on 9/26/2017.
@@ -8,15 +9,16 @@ import java.util.Set;
  */
 public class Game {
 
-    Game(){
+    public Game(){
         this.hasStarted = false;
+        gameID = UUID.randomUUID().toString();
     }
 
-    Set<Player> players;
+    private Set<Player> players;
 
-    String gameID;
+    private String gameID;
 
-    boolean hasStarted;
+    private boolean hasStarted;
 
     public boolean canJoinGame(){
         return false;

@@ -13,24 +13,28 @@ public class User {
         this.info = info;
     }
 
-    UserInfo info;
-    Set<Game> activeGames = new HashSet<>();
-    Set<Player> ownedPlayers = new HashSet<>();
+    private UserInfo info;
+    private Set<Game> activeGames = new HashSet<>();
+    private Set<Player> ownedPlayers = new HashSet<>();
 
-    private void addGame(Game game){
+    public void addGame(Game game){
         activeGames.add(game);
     }
 
-    private void removeGame(Game game){
+    public void removeGame(Game game){
         activeGames.remove(game);
     }
 
-    private void addPlayer(Player player){
+    public void addPlayer(Player player){
         ownedPlayers.add(player);
     }
 
-    private void removePlayer(Player player){
+    public void removePlayer(Player player){
         ownedPlayers.remove(player);
+    }
+
+    public String getUserID(){
+        return info.getUserID();
     }
 
     public UserInfo getInfo() {

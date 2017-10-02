@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import modeling.LoginRequest;
-import modeling.RegisterRequest;
-import modeling.ResultObject;
+import request.LoginRequest;
+import request.RegisterRequest;
 
 /**
  * Created by tyler on 9/26/2017.
