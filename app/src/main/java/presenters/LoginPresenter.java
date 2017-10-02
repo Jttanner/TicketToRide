@@ -14,6 +14,7 @@ import modeling.RegisterRequest;
 import modeling.RegisterResult;
 import modeling.ResultObject;
 import servercomms.ServerProxy;
+import ui.views.LoginActivity;
 
 /**
  * Created by tyler on 9/26/2017.
@@ -36,11 +37,11 @@ public class LoginPresenter implements MVP_Main.RequiredPresenterOps, MVP_Main.P
     /**
      * Called by View during the reconstruction events
      * @param view  Activity instance
-     */
+     *//*
     @Override
     public void setView(MVP_Main.RequiredLoginViewOps view) {
         myView = new WeakReference<>(view);
-    }
+    }*/
 
     @Override
     public void login(LoginRequest request) {

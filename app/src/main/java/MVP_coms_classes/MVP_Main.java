@@ -81,7 +81,7 @@ public interface MVP_Main {
          */
         void register(RegisterRequest request);
 
-        void setView(RequiredLoginViewOps view);
+        //void setView(RequiredLoginViewOps view);
         /**Checks if the user has entered a valid password
          * @param b Boolean, if they have a password*/
         void hasPassword(boolean b);
