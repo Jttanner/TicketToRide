@@ -22,8 +22,14 @@ public class ServerFacade {
     Map<String, Game> games = new HashMap<>();//Key=gameID
 
     public LoginResult login(LoginRequest request){
-        UserInfo check = users.get(request.getUserName()).getInfo();
-        return  check.checkUserInfo(request);
+
+        try{
+            UserInfo check = users.get(request.getUserName()).getInfo();
+            return  check.checkUserInfo(request);
+        }catch (NullPointerException e){
+            return new LoginResult(false, "failed", "failed");
+        }
+
     }
 
     public RegisterResult register(RegisterRequest request){

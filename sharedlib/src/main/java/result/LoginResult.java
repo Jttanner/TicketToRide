@@ -9,7 +9,6 @@ import request.RequestObject;
 public class LoginResult extends ResultObject {
 
     public LoginResult(boolean success, String userName, String message){
-        super();
         this.success = success;
         this.userName = userName;
         this.message = message;

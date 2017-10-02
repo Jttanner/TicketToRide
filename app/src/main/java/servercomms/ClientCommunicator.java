@@ -14,17 +14,17 @@ import result.ResultObject;
  * This class communicates with the server. It is called by the server proxy, given URLs and request objects and send those
  * off through http and returns the results.
  */
-public class ClientCommunicator {
+class ClientCommunicator {
     private static ClientCommunicator ourInstance = new ClientCommunicator();
 
-    public static ClientCommunicator getInstance() {
+    static ClientCommunicator getInstance() {
         return ourInstance;
     }
 
     private ClientCommunicator() {
     }
 
-    public ResultObject send(URL url, Object request) {
+    ResultObject send(URL url, Object request) {
         try {
 
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
@@ -33,7 +33,7 @@ public class ClientCommunicator {
             http.setDoOutput(true);    // There is a request body
 
             http.addRequestProperty("Accept", "application/json");
-
+            //Makes an encoder object to encode the request object into the output stream
             Encoder encoder = new Encoder();
             encoder.encode(request, http.getOutputStream());
 
@@ -42,9 +42,11 @@ public class ClientCommunicator {
             if (http.getResponseCode() == HttpURLConnection.HTTP_OK) {
 
                 //return encoder.decodeResultObject(http.getInputStream());
+                //TODO handle decoding
 
             } else {
                 System.out.println("ERROR: " + http.getResponseMessage());
+                //TODO handle decoding
                 //return encoder.decodeResultObject(http.getErrorStream());
             }
         } catch (IOException e) {
@@ -52,5 +54,5 @@ public class ClientCommunicator {
         }
         return null;
     }
-//
+
 }
