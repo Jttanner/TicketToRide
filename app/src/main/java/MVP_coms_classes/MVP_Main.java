@@ -3,7 +3,6 @@ package MVP_coms_classes;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
-
 import request.*;
 import result.*;
 
